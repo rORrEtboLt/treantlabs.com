@@ -1,0 +1,120 @@
+:root {
+  --forest: #1f3d2b;
+  --forest-deep: #142a1d;
+  --brass: #c9a24e;
+  --brass-dark: #8a6a26;
+  --cream: #f6f1e7;
+  --ink: #1c231e;
+  --muted: #56615a;
+  --max: 64rem;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--cream);
+}
+
+h1, h2, h3 {
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.2;
+  font-weight: 600;
+  margin: 0 0 .6em;
+}
+
+a { color: var(--brass-dark); }
+a:hover { color: var(--forest); }
+a:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; border-radius: 2px; }
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 1.25rem; }
+
+/* Header */
+.site-header { background: var(--forest-deep); }
+.site-header .wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; padding-top: .9rem; padding-bottom: .9rem;
+}
+.brand {
+  display: inline-flex; align-items: center; gap: .6rem;
+  color: var(--cream); text-decoration: none;
+  font-family: Georgia, serif; font-size: 1.15rem; letter-spacing: .02em;
+}
+.brand:hover { color: var(--brass); }
+.brand img { width: 2rem; height: 2rem; }
+.nav { display: flex; gap: 1.25rem; }
+.nav a { color: #d9d2c2; text-decoration: none; font-size: .95rem; }
+.nav a:hover { color: var(--brass); }
+
+/* Hero */
+.hero {
+  background: var(--forest);
+  background-image: radial-gradient(circle at 80% 0%, rgba(201,162,78,.18), transparent 55%);
+  color: var(--cream);
+  padding: 5rem 0 5.5rem;
+  border-bottom: 4px solid var(--brass);
+}
+.hero h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); margin-bottom: .35em; }
+.hero p { font-size: clamp(1.1rem, 2.6vw, 1.35rem); color: #e4dccb; max-width: 36rem; margin: 0; }
+.eyebrow {
+  display: inline-block; font-size: .8rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--brass); margin-bottom: 1rem;
+}
+
+/* Sections */
+section { padding: 4rem 0; }
+section h2 { font-size: clamp(1.6rem, 4vw, 2.1rem); color: var(--forest); }
+section h2::after {
+  content: ""; display: block; width: 3rem; height: 3px;
+  background: var(--brass); margin-top: .5rem;
+}
+
+.cards { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); margin-top: 2rem; }
+.card {
+  background: #fff; border: 1px solid #e3dccb; border-top: 4px solid var(--forest);
+  border-radius: 10px; padding: 1.5rem 1.5rem 1.25rem;
+}
+.card h3 { color: var(--forest); font-size: 1.3rem; }
+.card p { margin: 0; color: var(--muted); }
+
+.contact { background: #ece5d6; }
+.contact-list { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; gap: .9rem; }
+.contact-list li { display: flex; flex-wrap: wrap; gap: .25rem .75rem; align-items: baseline; }
+.contact-list .label {
+  min-width: 4.5rem; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+}
+.contact-list a { font-size: 1.2rem; font-weight: 600; color: var(--forest); text-decoration-color: var(--brass); text-underline-offset: 4px; }
+.contact-list a:hover { color: var(--brass-dark); }
+
+/* Footer */
+.site-footer { background: var(--forest-deep); color: #c9c2b2; font-size: .9rem; padding: 2.5rem 0; }
+.site-footer .wrap { display: grid; gap: 1.25rem; }
+.site-footer strong { color: var(--cream); }
+.site-footer a { color: var(--brass); }
+.site-footer address { font-style: normal; }
+.footer-meta { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; border-top: 1px solid rgba(255,255,255,.1); padding-top: 1.25rem; }
+
+/* Legal page */
+.legal { padding: 3rem 0 4rem; }
+.legal .wrap { max-width: 46rem; }
+.legal h1 { color: var(--forest); font-size: clamp(2rem, 5vw, 2.6rem); }
+.legal h2 { font-size: 1.35rem; margin-top: 2.25rem; }
+.legal h2::after { display: none; }
+.legal .updated { color: var(--muted); margin-top: -.5rem; }
+.legal ul { padding-left: 1.25rem; }
+.legal li { margin-bottom: .35rem; }
+
+@media (max-width: 34rem) {
+  .nav { gap: .9rem; }
+  .nav a { font-size: .9rem; }
+  .hero { padding: 3.5rem 0 4rem; }
+  section { padding: 3rem 0; }
+}
