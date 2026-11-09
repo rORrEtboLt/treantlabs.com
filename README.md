@@ -4,7 +4,7 @@ Static site for Treant Private Limited. Plain HTML/CSS, no build step.
 
 - `index.html`: home page
 - `privacy.html`: privacy policy (link this URL in App Store / Play Console listings: https://treantlabs.com/privacy.html)
-- `assets/`: stylesheet and logo
+- `assets/`: stylesheet, `logo.svg` (favicon: tree mark on green tile) and `mark.svg` (bare tree mark from the Treant name board)
 - `CNAME`: custom domain for GitHub Pages
 
 ## Preview locally
