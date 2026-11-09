@@ -77,6 +77,34 @@ section h2::after {
   background: var(--brass); margin-top: .5rem;
 }
 
+.hero-grid { display: grid; gap: 2.5rem; align-items: center; grid-template-columns: 1.1fr 1fr; }
+.hero-art { width: 100%; height: auto; max-width: 30rem; justify-self: end; }
+.hero-cta {
+  display: inline-block; margin-top: 1.75rem; padding: .7rem 1.3rem; border-radius: 999px;
+  background: var(--brass); color: var(--forest-deep); font-weight: 600; text-decoration: none;
+}
+.hero-cta:hover { background: #dbb764; color: var(--forest-deep); }
+
+.lede { color: var(--muted); max-width: 38rem; margin: 0; }
+
+/* Apps */
+.apps { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); margin-top: 2rem; }
+.app {
+  display: flex; flex-direction: column;
+  background: #fff; border: 1px solid #e3dccb; border-radius: 14px; overflow: hidden;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.app:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(20,42,29,.12); }
+.app-art { display: block; width: 100%; height: auto; aspect-ratio: 240 / 140; }
+.app-body { padding: 1.25rem 1.4rem 1.4rem; display: flex; flex-direction: column; gap: .35rem; flex: 1; }
+.app-body h3 { color: var(--forest); font-size: 1.35rem; margin: 0; }
+.app-body p { margin: 0; color: var(--muted); }
+.tag {
+  align-self: flex-start; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--brass-dark); background: #f4ecd9; padding: .15rem .55rem; border-radius: 999px;
+}
+.app-link { margin-top: auto; padding-top: .6rem; font-weight: 600; color: var(--forest); text-decoration-color: var(--brass); text-underline-offset: 4px; }
+
 .cards { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); margin-top: 2rem; }
 .card {
   background: #fff; border: 1px solid #e3dccb; border-top: 4px solid var(--forest);
@@ -111,6 +139,13 @@ section h2::after {
 .legal .updated { color: var(--muted); margin-top: -.5rem; }
 .legal ul { padding-left: 1.25rem; }
 .legal li { margin-bottom: .35rem; }
+
+@media (prefers-reduced-motion: reduce) { .app { transition: none; } .app:hover { transform: none; } }
+
+@media (max-width: 48rem) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-art { justify-self: center; max-width: 22rem; }
+}
 
 @media (max-width: 34rem) {
   .nav { gap: .9rem; }
