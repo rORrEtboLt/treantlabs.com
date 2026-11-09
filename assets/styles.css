@@ -25,9 +25,10 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
-  line-height: 1.2;
+  font-family: "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.15;
   font-weight: 600;
+  letter-spacing: -0.01em;
   margin: 0 0 .6em;
 }
 
@@ -46,7 +47,7 @@ a:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; border-r
 .brand {
   display: inline-flex; align-items: center; gap: .6rem;
   color: var(--cream); text-decoration: none;
-  font-family: Georgia, serif; font-size: 1.15rem; letter-spacing: .02em;
+  font-family: "Outfit", system-ui, sans-serif; font-weight: 600; font-size: 1.2rem; letter-spacing: .01em;
 }
 .brand:hover { color: var(--brass); }
 .brand img { width: 2rem; height: 2rem; }
@@ -56,18 +57,30 @@ a:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; border-r
 
 /* Hero */
 .hero {
-  background: var(--forest);
-  background-image: radial-gradient(circle at 80% 0%, rgba(201,162,78,.18), transparent 55%);
-  color: var(--cream);
-  padding: 5rem 0 5.5rem;
+  position: relative; overflow: hidden; isolation: isolate;
+  background: var(--forest-deep); color: var(--cream);
+  padding: 6.5rem 0 7rem; text-align: center;
   border-bottom: 4px solid var(--brass);
 }
-.hero h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); margin-bottom: .35em; }
-.hero p { font-size: clamp(1.1rem, 2.6vw, 1.35rem); color: #e4dccb; max-width: 36rem; margin: 0; }
+.hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; }
+.hero-inner { display: flex; flex-direction: column; align-items: center; }
+.hero-mark { width: 3.5rem; height: 3.5rem; margin-bottom: 1.5rem; }
+.hero h1 { font-size: clamp(2.2rem, 5.5vw, 3.6rem); font-weight: 700; max-width: 18ch; margin-bottom: .5em; }
+.hero p { font-size: clamp(1.05rem, 2.4vw, 1.3rem); color: #e4dccb; max-width: 36rem; margin: 0; }
 .eyebrow {
-  display: inline-block; font-size: .8rem; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--brass); margin-bottom: 1rem;
+  display: inline-block; font-size: .8rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--brass); margin-bottom: 1rem; font-weight: 600;
 }
+.hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .9rem; margin-top: 2.25rem; }
+.btn {
+  display: inline-block; padding: .85rem 1.6rem; border-radius: 10px;
+  font-family: "Outfit", system-ui, sans-serif; font-weight: 600; font-size: 1.05rem; text-decoration: none;
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+.btn-primary { background: var(--brass); color: var(--forest-deep); }
+.btn-primary:hover { background: #dbb764; color: var(--forest-deep); }
+.btn-ghost { border: 1.5px solid rgba(246,241,231,.45); color: var(--cream); }
+.btn-ghost:hover { border-color: var(--brass); color: var(--brass); }
 
 /* Sections */
 section { padding: 4rem 0; }
@@ -77,13 +90,6 @@ section h2::after {
   background: var(--brass); margin-top: .5rem;
 }
 
-.hero-grid { display: grid; gap: 2.5rem; align-items: center; grid-template-columns: 1.1fr 1fr; }
-.hero-art { width: 100%; height: auto; max-width: 30rem; justify-self: end; }
-.hero-cta {
-  display: inline-block; margin-top: 1.75rem; padding: .7rem 1.3rem; border-radius: 999px;
-  background: var(--brass); color: var(--forest-deep); font-weight: 600; text-decoration: none;
-}
-.hero-cta:hover { background: #dbb764; color: var(--forest-deep); }
 
 .lede { color: var(--muted); max-width: 38rem; margin: 0; }
 
@@ -143,13 +149,11 @@ section h2::after {
 @media (prefers-reduced-motion: reduce) { .app { transition: none; } .app:hover { transform: none; } }
 
 @media (max-width: 48rem) {
-  .hero-grid { grid-template-columns: 1fr; }
-  .hero-art { justify-self: center; max-width: 22rem; }
-}
+    }
 
 @media (max-width: 34rem) {
   .nav { gap: .9rem; }
   .nav a { font-size: .9rem; }
-  .hero { padding: 3.5rem 0 4rem; }
+  .hero { padding: 4.5rem 0 5rem; }
   section { padding: 3rem 0; }
 }
